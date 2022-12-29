@@ -1,6 +1,6 @@
 # Estudo do Push Swap da Escola 42
 
-## Diretrizes para a tarefa
+## Diretrizes para a tarefa:
 Um conjunto de dados devem ser classificados do menor para o maior.
 Você tem à sua disposição um conjunto de valores inteiros, 2 pilhas, e um conjunto de instruções para manipular as duas pilhas.
 Devemos escrever um programa em C chamado push_swap que calcula e exibe
@@ -12,7 +12,7 @@ têm que enfrentá-los em algum momento.
 
 Os objetivos de aprendizado deste projeto são rigor, uso de C e uso de algoritmos básicos, especialmente concentrando-se em sua complexidade.
 
-## As regras do jogo
+## As regras do jogo:
 **O objetivo é colocar em ordem crescente os números, na pilha a**
  Você tem 2 pilhas, chamadas a e b.
 - No início:\
@@ -31,3 +31,12 @@ Você pode realizar APENAS os seguintes movimentos:\
     **rra** (rotação reversa de a): Descer uma casa todos os elementos da pilha a passando o último elemento para o primeiro.
     **rrb** (rotação reversa de b): Descer uma casa todos os elementos da pilha b passando o último elemento para o primeiro.
     **rrr** : rra e rrb ao mesmo tempo.
+
+## Orientações:
+Você tem que escrever um programa chamado push_swap que toma como argumento a pilha uma formatada como uma lista de números inteiros. O primeiro argumento deve estar no topo da pilha (tome cuidado com o pedido).
+- O programa deve exibir a menor lista possível de instruções para ordenar a pilha a, sendo o menor número no topo.
+- As instruções devem ser separadas por um "\n" e nada mais.
+- O objetivo é classificar a pilha com o menor número possível de operações. Durante o processo de avaliação, o número de instruções encontradas por seu programa será em comparação com um limite: o número máximo de operações toleradas. Se seu exibe uma lista mais longa ou, se os números não estiverem ordenados corretamente, seu programa nota será 0.
+- Se nenhum parâmetro for especificado, o programa não deve exibir nada e dar a voltar imediatamente.
+- Em caso de erro, deve exibir "Erro" seguido por um "\n" no erro padrão.
+Os erros incluem, por exemplo: alguns argumentos não são inteiros, alguns argumentos são maior que um número inteiro e/ou há duplicatas
