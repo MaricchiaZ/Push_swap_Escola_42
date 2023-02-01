@@ -1,37 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_array_cmp.c                                     :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/28 19:40:22 by maclara-          #+#    #+#             */
-/*   Updated: 2023/01/03 13:05:05 by maclara-         ###   ########.fr       */
+/*   Created: 2023/01/31 12:30:05 by maclara-          #+#    #+#             */
+/*   Updated: 2023/01/31 12:32:10 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_array_cmp(int *arr1, int *arr2, int size_a)
+static void	ft_bzero(void *s, size_t n)
 {
 	int	i;
 
 	i = 0;
-	while(i < size_a)
+	while (n && s)
 	{
-		if (arr1[i] == arr2[i])
-			i++;
-		else
-		{
-			printf("\n comparação errada1\n");
-			return (0); // falso
-		}
+		*(unsigned char *)(s + i) = '\0';
+		i++;
+		n--;
 	}
-	if (i == size_a)
-	{
-		printf("\n comparação certa\n");
-		return (1);
-	}
-	printf("\n comparação errada2\n");
-	return (0); // falso
+}
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	size_t	aux;
+	void	*tab;
+
+	if (nmemb == 0)
+		return (NULL);
+	if (nmemb > 2147483647 || size > 2147483647 || size * nmemb > 2147483647)
+		return (NULL);
+	aux = (size) * (nmemb);
+	tab = malloc(aux);
+	if (tab == NULL)
+		return (NULL);
+	ft_bzero(tab, aux);
+	return (tab);
 }

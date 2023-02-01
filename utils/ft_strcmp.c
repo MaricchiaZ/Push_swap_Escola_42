@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_array_cmp.c                                     :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/28 19:40:22 by maclara-          #+#    #+#             */
-/*   Updated: 2023/01/03 13:05:05 by maclara-         ###   ########.fr       */
+/*   Created: 2022/07/18 19:00:15 by maclara-          #+#    #+#             */
+/*   Updated: 2022/12/30 13:40:46 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	ft_array_cmp(int *arr1, int *arr2, int size_a)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int	i;
-
-	i = 0;
-	while(i < size_a)
+	while (*s1 != '\0' && *s1 == *s2)
 	{
-		if (arr1[i] == arr2[i])
-			i++;
-		else
-		{
-			printf("\n comparação errada1\n");
-			return (0); // falso
-		}
+		s1++;
+		s2++;
 	}
-	if (i == size_a)
-	{
-		printf("\n comparação certa\n");
-		return (1);
-	}
-	printf("\n comparação errada2\n");
-	return (0); // falso
+	return (*s1 - *s2);
 }
