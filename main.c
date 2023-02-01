@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 21:25:55 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/01 11:17:58 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:51:26 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ int	main(int argc, char *argv[])
 	ft_sort_array(ps.order_cmp, ps.size_sa);
 	if (argc <= 6)
 		order_five(&ps);
-	else if (argc <= 100)
+	else if (argc <= 101)
 		order_hundred(&ps, (float)ps.size_sa / 5);
 	else
 		order_large_numbers(&ps);
-	// printf("pilha: ");
+	// printf("pilha a: ");
 	// for(int i=0; i < ps.size_sa; i++)
 	// 	printf("%d ", ps.sa[i]);
 	// printf("\n");

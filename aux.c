@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 11:35:48 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/01 11:16:35 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/01 19:00:35 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,30 +62,35 @@ unsigned int	index_bigger_nb(int *stack, int size_s) // recebe a pilha e o taman
 int	near_pos_to_move(int *stack, int stack_size, int range, int min_range)
 {
 	int	i; // percorre a pilha
-	int	near_pos; // salva i índice do número de interesse
+	int	near_pos; // salva o índice do número de interesse
 
-	i = stack_size - 1;
+	i = 0;
 	near_pos = 0;
-	while (i > -1) // enquanto não acabarmos a pilha a
+	if (stack_size < 10)
+		return(stack_size - 1);
+	while (i < stack_size) // enquanto não acabarmos a pilha a
 	{
 		if (min_range <= stack[i] && stack[i] < range) // procuramos o primeiro número que tenha o valor dentre a faixa de números que estamos trabalhando que vai do min_range até o range
 		{
 			near_pos = i; // salvamos a posição em near_pos
 			break ; // paramos o while
 		}
-		i--; // avançamos na pilha fazendo a nossa busca
+		i++; // avançamos na pilha fazendo a nossa busca
 	}
-	i = 0; // agora olhamos de traz pra frente a pilha 
-	while (i < stack_size - 1 && i < stack_size - near_pos - 1) // olhamos agora no fim da pilha se existe algum número de posição melhor para movimentar, e que esteja mais próxima do fim da pilha do que o número que encontramos no while de cima está do início da pilha 
+	i = stack_size - 1; // agora olhamos de traz pra frente a pilha 
+	while (i < stack_size && i > stack_size - near_pos) // olhamos agora no fim da pilha se existe algum número de posição melhor para movimentar, e que esteja mais próxima do fim da pilha do que o número que encontramos no while de cima está do início da pilha 
 	{
 		if (min_range <= stack[i] && stack[i] < range) // se encontrarmos um número pertencente a faixa trabalhada
 		{
 			near_pos = i; // salvamos a posição dele em near_pos
 			break ; // paramos o while
 		}
-		i++; // retrocedemos na pilha fazendo a nossa busca
+		i--; // retrocedemos na pilha fazendo a nossa busca
 	}
-	//printf("near_pos %d\n", near_pos);
+	printf("min_range %d\n", min_range);
+	printf("range %d\n", range);
+	printf("size a %d\n", stack_size);
+	printf("near_pos %d\n", near_pos);
 	return (near_pos); // entregamos a posição encontrada
 }
 
@@ -134,3 +139,5 @@ void	bigger_to_top(t_ps *ps, unsigned int index_bigger, unsigned int size, char 
 		distance--;
 	}
 }
+
+//./push_swap 6778990 10 -2 8 -1234 786 9

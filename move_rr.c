@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 13:01:26 by maclara-          #+#    #+#             */
-/*   Updated: 2023/01/31 13:40:51 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/01 18:25:42 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ void	move_rrr(t_ps *ps)
 	int	temp;
 	int	i;
 
-	if(!(ps->size_sa > 1) || !(ps->size_sb > 1))
-		return;
+	//if(!(ps->size_sa > 1) || !(ps->size_sb > 1))
+	//	return;
 	i = 0;
 	temp = ps->sa[0];
 	while (i < ps->size_sa - 1)

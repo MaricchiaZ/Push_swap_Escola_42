@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 21:30:30 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/01 10:56:56 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/01 13:39:20 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,4 +120,8 @@ void	change_nb_to_index(t_ps *ps)
 	}
 	free(ps->sa);
 	ps->sa = new_sa; // salva as posiçoes na a->stk
+	// printf("pilha: ");
+	// for(int i=0; i < ps->size_sa; i++)
+	// 	printf("%d ", ps->sa[i]);
+	// printf("\n");
 }

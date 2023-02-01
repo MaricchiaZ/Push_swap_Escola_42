@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 14:31:29 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/01 11:34:45 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/01 19:04:49 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	order_hundred(t_ps *ps, int division)
 	if (in_order(ps))
 		return;
 	portion = 0; // inicia em zero
-	while (ps->size_sa > 1) // enquanto ainda tiver algo na pilha a
+	while (ps->size_sa > 1) // enquanto ainda tiver algo na pilha a // economiza mandar o maior pra lá
 	{
 		portion = portion + division; // a porção trabalhada ganha mais um bloco (divisão)
 		if ((float)ps->size_sa / 5 > 5) // se o tamanho da pilha a ainda for divisivel por 5 
@@ -96,6 +96,15 @@ void	order_hundred(t_ps *ps, int division)
 			choice_mov_hundred(ps, portion); // escolhemos o melhor movimento a se fazer
 			bigger_to_top(ps, find_predecessor_in_b(ps, ps->sa[ps->size_sa - 1]), ps->size_sb, 'b'); // levamos o maior número pro topo
 			move_pb(ps); // movemos para a pilha b
+			// printf("pilha a: ");
+			// for(int i=0; i < ps->size_sa; i++)
+			// 	printf("%d ", ps->sa[i]);
+			// printf("\n");
+			// printf("pilha b: ");
+			// for(int i=0; i < ps->size_sb; i++)
+			// 	printf("%d ", ps->sb[i]);
+			// printf("\n");
+			//sleep (1);
 		}
 	}
 	bigger_to_top(ps, index_bigger_nb(ps->sb, ps->size_sb), ps->size_sb, 'b'); // levamos o maior número pro topo
