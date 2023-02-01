@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:32:21 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/01 18:45:41 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/01 19:26:16 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*best_mov_r_or_rr(t_ps *ps, int *sa, int *sb, int near_pos_a, int near_pos_
 	{
 		if (near_pos_a >= ps->size_sa /2 && near_pos_b >= ps->size_sb / 2) // se o movimento de interesse estiver da metada pra cima das pilhas recomenadamos o movimento rr
 			return ("rr"); // retornamos a indicação do mov sugerido
-		else if (near_pos_a < ps->size_sa /2 && near_pos_b < ps->size_sb / 2) // se o movimento de interesse estiver da metada pra baixo das pilhas damos o movimento rrr
+		else if (near_pos_a < ps->size_sa / 2 && near_pos_b < ps->size_sb / 2) // se o movimento de interesse estiver da metada pra baixo das pilhas damos o movimento rrr
 			return ("rrr"); // retornamos a indicação do mov sugerido
 	}
 	if (sa && ps->sa && near_pos_a != ps->size_sa - 1) // se tivermos a pilha a e a melhor posição da pilha a
@@ -73,17 +73,17 @@ void	choice_mov_hundred(t_ps *ps, int range)
 			move_rrr(ps);
 		else
 		{
-			printf("portion: %d\n", range);
-			printf("pilha a: ");
-			for(int a=0; a < ps->size_sa; a++)
-				printf("%d ", ps->sa[a]);
-			printf("\n");
+			// printf("portion: %d\n", range);
+			// printf("pilha a: ");
+			// for(int a=0; a < ps->size_sa; a++)
+			// 	printf("%d ", ps->sa[a]);
+			// printf("\n");
 			exec_moves(ps, move);
-			printf("pilha a: ");
-			for(int a=0; a < ps->size_sa; a++)
-				printf("%d ", ps->sa[a]);
-			printf("\n");
-			sleep(0.5);
+			// printf("pilha a: ");
+			// for(int a=0; a < ps->size_sa; a++)
+			// 	printf("%d ", ps->sa[a]);
+			// printf("\n");
+			// sleep(0.5);
 		}
 		near_pos = near_pos_to_move(ps->sa, ps->size_sa, range , 0);  // recebemos a nova posição pra mover
 	}
