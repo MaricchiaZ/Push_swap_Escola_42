@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 14:31:29 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/01 21:55:59 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/01 22:14:40 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ void	order_large_numbers(t_ps *ps)
 		portion = info_portion_b(ps, portion);
 		move_in_portion('a', ps, portion);
 	}
-	portion.max = (ps->size_sa + ps->size_sb) / 64;
+	portion.max = (ps->size_sa + ps->size_sb) / 48;
 	while (ps->size_sa)
 	{
 		portion = re_info_portion_a(ps, portion);
