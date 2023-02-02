@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 21:24:00 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/02 10:40:40 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/02 11:19:37 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,12 @@ t_big_i big_index);
 // order_hundred.c
 void			choice_mov_hundred(t_ps *ps, int range);
 
-// order_large_numbers.c
+// info_portion.c
 t_div			info_portion_a(t_ps *ps, t_div portion);
 t_div			info_portion_b(t_ps *ps, t_div portion);
 t_div			re_info_portion_a(t_ps *ps, t_div portion);
+
+// order_large_numbers.c
 void			move_in_portion(char stack, t_ps *ps, t_div portion);
 
 // aux.c

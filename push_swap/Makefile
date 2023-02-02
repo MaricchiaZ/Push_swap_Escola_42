@@ -21,6 +21,7 @@ SRCS	= $(PATH_CHECK)check.c \
 		$(PATH_ORDER)order_hundred.c \
 		$(PATH_ORDER)order_large_numbers.c \
 		$(PATH_ORDER)order.c \
+		$(PATH_ORDER)portion_info.c \
 		$(PATH_MAIN)main.c \
 		$(PATH_MOVES)move_p.c \
 		$(PATH_MOVES)move_r.c \
