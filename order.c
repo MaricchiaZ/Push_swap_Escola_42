@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 14:31:29 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/01 19:04:49 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/01 21:55:59 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,19 +116,19 @@ void	order_large_numbers(t_ps *ps)
 {
 	t_div	portion; // as pilhas serão trabalhadas em porções/ ou subdivisões
 	
-	portion.max = 0;
+	portion.max = 0; // máximo inicia em zero
 	while (ps->size_sa)
 	{
 		portion = info_portion_a(ps, portion);
 		move_in_portion('b', ps, portion);
 	}
-	portion.min = ps->size_sa + ps->size_sb;
+	portion.min = ps->size_sa + ps->size_sb; // mínimo recebe a qnt total de números passados
 	while (ps->size_sb)
 	{
 		portion = info_portion_b(ps, portion);
 		move_in_portion('a', ps, portion);
 	}
-	portion.max = (ps->size_sa + ps->size_sb) / 48;
+	portion.max = (ps->size_sa + ps->size_sb) / 64;
 	while (ps->size_sa)
 	{
 		portion = re_info_portion_a(ps, portion);
