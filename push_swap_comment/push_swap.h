@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 21:24:00 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/01 10:57:23 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/02 08:09:18 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int			ft_str_is_numeric(char *str);
 void		ft_sort_array(int *tab, int size);
 long int	ft_atolongi(const char *nptr);
 int			*ft_array_dup(int *arr, int size);
-int			ft_array_cmp(int *arr1, int *arr2, int size_a);
 int			ft_strcmp(char *s1, char *s2);
 void		*ft_calloc(size_t nmemb, size_t size);
 

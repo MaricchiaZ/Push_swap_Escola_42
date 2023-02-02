@@ -25,12 +25,8 @@ SRCS	= ./main.c \
 		$(PATH_UTILS)ft_atolongi.c \
 		$(PATH_UTILS)ft_sort_array.c \
 		$(PATH_UTILS)ft_array_dup.c \
-		$(PATH_UTILS)ft_array_cmp.c \
 		$(PATH_UTILS)ft_strcmp.c \
 		$(PATH_UTILS)ft_calloc.c \
-		#$(PATH_UTILS)ft_strlen.c \
-		$(PATH_UTILS)ft_split.c \
-		$(PATH_UTILS)ft_strlcpy.c \
 
 OBJS	= $(patsubst $(PATH_SRCS)%.c, $(PATH_OBJS)%.o, $(SRCS))
 

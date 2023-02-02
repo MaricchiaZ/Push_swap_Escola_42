@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 18:32:21 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/01 19:26:16 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/02 08:03:03 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ char	*best_mov_r_or_rr(t_ps *ps, int *sa, int *sb, int near_pos_a, int near_pos_
 	
 	//printf("near_pos_a: %d\n", near_pos_a);
 	//printf("near_pos_b: %d\n", near_pos_b);
-	if (sa && sb && ps->size_sa > 0 && ps->size_sb > 0 && near_pos_a != ps->size_sa - 1 && near_pos_b != ps->size_sb -1) // se exitir a pilha e a pilha b, e tivermos localizado a melhor posição de a e b pra movimentar
+	if (sa && sb && ps->size_sa > 1 && ps->size_sb > 1 && near_pos_a != ps->size_sa - 1 && near_pos_b > (ps->size_sb -1) / 2) // se exitir a pilha e a pilha b, e tivermos localizado a melhor posição de a e b pra movimentar
 	{
-		if (near_pos_a >= ps->size_sa /2 && near_pos_b >= ps->size_sb / 2) // se o movimento de interesse estiver da metada pra cima das pilhas recomenadamos o movimento rr
+		if (near_pos_a >= (ps->size_sa - 1) /2 && near_pos_b >= (ps->size_sb - 1) / 2) // se o movimento de interesse estiver da metada pra cima das pilhas recomenadamos o movimento rr
 			return ("rr"); // retornamos a indicação do mov sugerido
-		else if (near_pos_a < ps->size_sa / 2 && near_pos_b < ps->size_sb / 2) // se o movimento de interesse estiver da metada pra baixo das pilhas damos o movimento rrr
+		else if (near_pos_a < (ps->size_sa - 1) / 2 && near_pos_b < (ps->size_sb - 1) / 2) // se o movimento de interesse estiver da metada pra baixo das pilhas damos o movimento rrr
 			return ("rrr"); // retornamos a indicação do mov sugerido
 	}
 	if (sa && ps->sa && near_pos_a != ps->size_sa - 1) // se tivermos a pilha a e a melhor posição da pilha a

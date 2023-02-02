@@ -14,8 +14,8 @@
 
 long int	ft_atolongi(const char *nptr)
 {
-	int	i;
-	int	signal;
+	int			i;
+	int			signal;
 	long int	nb;
 
 	i = 0;
