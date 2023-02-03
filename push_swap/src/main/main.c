@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 21:25:55 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/03 19:55:08 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/03 20:09:56 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	init_struct(t_ps *ps)
 {
 	ps->sb = NULL;
-	ps->order_cmp = NULL;
 	ps->size_sb = 0;
 }
 
@@ -25,8 +24,6 @@ void	free_struct(t_ps *ps)
 		free(ps->sa);
 	if (ps->sb)
 		free(ps->sb);
-	if (ps->order_cmp)
-		free(ps->order_cmp);
 }
 
 int	main(int argc, char *argv[])
@@ -40,8 +37,6 @@ int	main(int argc, char *argv[])
 	duplicate(&ps);
 	if (argc <= 4)
 		order_three(&ps);
-	//ps.order_cmp = ft_array_dup(ps.sa, ps.size_sa);
-	//ft_sort_array(ps.order_cmp, ps.size_sa);
 	if (argc <= 6)
 		order_five(&ps);
 	else if (argc <= 101)

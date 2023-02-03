@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 21:24:00 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/03 19:21:45 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/03 20:10:11 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct s_push_swap
 {
 	int	*sa;
 	int	*sb;
-	int	*order_cmp;
 	int	size_sa;
 	int	size_sb;
 	int	temp;
