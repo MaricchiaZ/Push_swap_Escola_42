@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 21:25:55 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/02 10:01:13 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/03 18:45:58 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ int	main(int argc, char *argv[])
 		order_large_numbers(&ps);
 	free(ps.sa);
 	free(ps.sb);
+	free(ps.order_cmp);
 	return (0);
 }
