@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 10:19:23 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/02 11:31:21 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/03 21:05:47 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_str_is_numeric(char *str)
 
 	i = 0;
 	if (str[i] == '\0')
-		return (1);
+		return (0);
 	while (str[i] != '\0')
 	{
 		if (str[0] == '-' || str[0] == '+' )

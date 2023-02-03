@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 09:41:25 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/03 20:10:40 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/03 21:36:26 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	exit_and_free(t_ps *ps)
 {
-	write(2, "Error\n", 7);
+	write(2, "Error\n", 6);
 	if (ps->sa)
 		free (ps->sa);
 	if (ps->sb)

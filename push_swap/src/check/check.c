@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 21:30:30 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/03 19:42:17 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/03 21:34:56 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_args(int argc, char **argv)
 				i++;
 			else
 			{
-				write(2, "Error\n", 7);
+				write(2, "Error\n", 6);
 				return (0);
 			}
 		}
