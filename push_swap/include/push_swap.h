@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 21:24:00 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/02 11:19:37 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/03 19:21:45 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void			move_rrr(t_ps *ps);
 void			exec_moves(t_ps *ps, char *move);
 
 // order.c
+int				in_order(t_ps *ps);
 void			order_three(t_ps *ps);
 void			order_five(t_ps *ps);
 void			order_hundred(t_ps *ps, int division);
