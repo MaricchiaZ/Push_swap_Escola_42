@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 11:35:48 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/01 19:11:45 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/03 22:07:34 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	near_pos_to_move(int *stack, int stack_size, int range, int min_range)
 
 	i = 0;
 	near_pos = 0;
-	if (stack_size < 11)
+	if (stack_size < 20)
 		return(stack_size - 1);
 	while (i < stack_size) // enquanto não acabarmos a pilha a
 	{
