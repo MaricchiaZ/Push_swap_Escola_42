@@ -6,30 +6,30 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 11:35:48 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/03 22:07:34 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/09 12:08:01 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// funçao que econtra e retorna a posição na pilha em que se encontra o menor elemento
+// funçao que encontra e retorna a posição na pilha em que se encontra o menor elemento
 unsigned int	index_low_nb(t_ps *ps)
 {
 	int				i; // índice que percorre a pilha a
-	int				low_nb; // vai salvar o menor valor encontrado na pilha a
-	unsigned int	index_low_nb; // vai salvar a posição [índice] do menor número da pilha a
+	int				low_nb; // vai salvar o menor valor encontrado na pilha
+	unsigned int	index_low_nb; // vai salvar a posição [índice] do menor número da pilha
 
-	i = 0; // índice começa em zer
-	low_nb = ps->sa[0]; //vamos comparar com a posiçao 1
+	i = 0; // índice começa em zero
+	low_nb = ps->sa[0]; //vamos começar comparando com a posiçao inicial ps->sa[0]
 	index_low_nb = 0; // salvamos o índice da posição que estamos analisando
-	while (i < ps->size_sa) // enquanto não acabarmos de olhar toda a pilha a
+	while (i < ps->size_sa) // enquanto não acabarmos de olhar toda a pilha
 	{
 		if (ps->sa[i] < low_nb) // se a posição que estamos tem um elemento menor que o menor salvo em low_nb
 		{
 			low_nb = ps->sa[i]; // salvamos esse menor elemento
 			index_low_nb = i; // e salvamos a posição de onde se encontra esse menor elemento
 		}
-		i++; // seguimos até o fim da pilha/stack a
+		i++; // seguimos até o fim da pilha/stack
 	}
 	return (index_low_nb); // retornamos o índice do menor elemento
 }
@@ -50,7 +50,7 @@ unsigned int	index_bigger_nb(int *stack, int size_s) // recebe a pilha e o taman
 	{
 		if (stack[i] > bigger_nb) //se o número que estamos olhando da pilha for maior do que o já salvo, vamos sobrescrevê-lo
 		{
-			bigger_nb = stack[i]; // salvamos no número atual em the_bigger
+			bigger_nb = stack[i]; // salvamos no número atual em bigger_nb
 			index_bigger_nb = i; // e seu índice em index_bigger_nb 
 		}
 		i++; // continuamos olhando a pilha
@@ -58,7 +58,7 @@ unsigned int	index_bigger_nb(int *stack, int size_s) // recebe a pilha e o taman
 	return (index_bigger_nb); // retornamos o índice do maior número da pilha
 }
 
-// buscamos um menor número dentro da faixa escolhida, e vemos se está no início ou no fim da pilha, se a posição for == size - 1, veremos um pb, se for próximo ao topo r, proximo ao fim rr
+// buscamos um menor número dentro da faixa escolhida, e vemos se está no início ou no fim da pilha, se a posição for == size - 1 (está no topo), veremos um pb, se for próximo ao topo r, proximo ao fim da pilha, teremos um rr
 int	near_pos_to_move(int *stack, int stack_size, int range, int min_range)
 {
 	int	i; // percorre a pilha
@@ -68,7 +68,7 @@ int	near_pos_to_move(int *stack, int stack_size, int range, int min_range)
 	near_pos = 0;
 	if (stack_size < 20)
 		return(stack_size - 1);
-	while (i < stack_size) // enquanto não acabarmos a pilha a
+	while (i < stack_size) // enquanto não acabarmos a pilha
 	{
 		if (min_range <= stack[i] && stack[i] < range) // procuramos o primeiro número que tenha o valor dentre a faixa de números que estamos trabalhando que vai do min_range até o range
 		{
@@ -87,6 +87,7 @@ int	near_pos_to_move(int *stack, int stack_size, int range, int min_range)
 		}
 		i--; // retrocedemos na pilha fazendo a nossa busca
 	}
+	// esses prints ajudam a entender o que se passa na busca
 	// printf("min_range %d\n", min_range);
 	// printf("range %d\n", range);
 	// printf("size a %d\n", stack_size);
@@ -94,7 +95,7 @@ int	near_pos_to_move(int *stack, int stack_size, int range, int min_range)
 	return (near_pos); // entregamos a posição encontrada
 }
 
-// função que retorna o índice onde se encontra o antecessor do número passado
+// função que retorna o índice onde se encontra o antecessor do número passado (isso auxulia a ordenação em b, assim b já recebe os números mais ou menos em ordem)
 int	find_predecessor_in_b(t_ps *ps, int nb)
 {
 	int	i; // índice que percorre a stack
@@ -127,9 +128,9 @@ void	bigger_to_top(t_ps *ps, unsigned int index_bigger, unsigned int size, char 
 	int	distance; // distância da posição do índice até o topo
 	
 	if (index_bigger >= size / 2) // se o índice encontra-se até a metade da altura da pilha, 
-		distance = size - index_bigger - 1; // a distância recebe o valor do índice
+		distance = size - index_bigger - 1; // a distância recebe o tamanho menos o índice (rotate)
 	else
-		distance = index_bigger + 1; // caso contrário a distância recebe o tamanho menos o índice (mov reverso)
+		distance = index_bigger + 1; // caso contrário a distância recebe o valor do índice (mov reverso)
 	while (distance > 0) // enquanto a distância for maior q zero
 	{
 		if (stack == 'a') // se estivermos trabalhando com a pilha a
@@ -139,5 +140,3 @@ void	bigger_to_top(t_ps *ps, unsigned int index_bigger, unsigned int size, char 
 		distance--;
 	}
 }
-
-//./push_swap 6778990 10 -2 8 -1234 786 9

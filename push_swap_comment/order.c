@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 14:31:29 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/01 22:14:40 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/09 18:25:19 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void	order_three(t_ps *ps)
 	// com 3 números
 	if (ps->sa[0] > ps->sa[1] && ps->sa[1] > ps->sa[2]) // foi passado 1,2,3 -> salvamos na pilha 3, 2, 1
 		return;
-	// foi passado 2,1,3 -> salvamos na pilha 3, 1, 2 SA 321ok
-	// foi passado 3,2,1 -> salvamos na pilha 1, 2, 3 SA RRA 132
-	// foi passado 1,3,2 -> salvamos na pilha 2, 3, 1 SA RA 213
+	// foi passado 2,1,3 -> salvamos na pilha 3, 1, 2 -> precisamos do movimento SA 
+	// foi passado 3,2,1 -> salvamos na pilha 1, 2, 3 -> precisamos dos movimentos SA RRA 
+	// foi passado 1,3,2 -> salvamos na pilha 2, 3, 1 -> precisamos do movimento SA RA 
 	if ((ps->sa[0] < ps->sa[1] && ps->sa[2] < ps->sa[0]) || \
 	(ps->sa[0] < ps->sa[1] && ps->sa[1] < ps->sa[2]) || \
 	(ps->sa[0] > ps->sa[2] && ps->sa[2] > ps->sa[1]))
@@ -96,6 +96,7 @@ void	order_hundred(t_ps *ps, int division)
 			choice_mov_hundred(ps, portion); // escolhemos o melhor movimento a se fazer
 			bigger_to_top(ps, find_predecessor_in_b(ps, ps->sa[ps->size_sa - 1]), ps->size_sb, 'b'); // levamos o maior número pro topo
 			move_pb(ps); // movemos para a pilha b
+			// //printamos as pilhas para entender o que esta acontecendo
 			// printf("pilha a: ");
 			// for(int i=0; i < ps->size_sa; i++)
 			// 	printf("%d ", ps->sa[i]);
@@ -104,7 +105,7 @@ void	order_hundred(t_ps *ps, int division)
 			// for(int i=0; i < ps->size_sb; i++)
 			// 	printf("%d ", ps->sb[i]);
 			// printf("\n");
-			//sleep (1);
+			//sleep (1); // paraliza o loop POR 1 SEGUNDO (facilita compreender o que se passa)
 		}
 	}
 	bigger_to_top(ps, index_bigger_nb(ps->sb, ps->size_sb), ps->size_sb, 'b'); // levamos o maior número pro topo
@@ -117,26 +118,26 @@ void	order_large_numbers(t_ps *ps)
 	t_div	portion; // as pilhas serão trabalhadas em porções/ ou subdivisões
 	
 	portion.max = 0; // máximo inicia em zero
-	while (ps->size_sa)
+	while (ps->size_sa) // movemos a pilha a para a b, ordenando dentro das porções (essa primeira vez não fica tão organizado)
 	{
-		portion = info_portion_a(ps, portion);
-		move_in_portion('b', ps, portion);
+		portion = info_portion_a(ps, portion); // portion recebe as infos da faixa de números que estamos trabalhando
+		move_in_portion('b', ps, portion); // movemos os números a partir das posições deles
 	}
 	portion.min = ps->size_sa + ps->size_sb; // mínimo recebe a qnt total de números passados
 	while (ps->size_sb)
 	{
-		portion = info_portion_b(ps, portion);
-		move_in_portion('a', ps, portion);
+		portion = info_portion_b(ps, portion); // portion recebe as infos da faixa de números que estamos trabalhando
+		move_in_portion('a', ps, portion); // movemos os números a partir das posições deles
 	}
-	portion.max = (ps->size_sa + ps->size_sb) / 48;
-	while (ps->size_sa)
+	portion.max = (ps->size_sa + ps->size_sb) / 48; //max recebe o 1/48 do tamanho total
+	while (ps->size_sa) // movemos a pilha a para a b DE NOVO, ordenando dentro das porções (essa segunda vez já fica bem mais organizado)
 	{
-		portion = re_info_portion_a(ps, portion);
-		move_in_portion('b', ps, portion);
+		portion = re_info_portion_a(ps, portion); // portion recebe as infos da faixa de números que estamos trabalhando
+		move_in_portion('b', ps, portion); // movemos os números a partir das posições deles
 	}
-	while (ps->size_sb)
+	while (ps->size_sb) // devolvemos td para a 
 	{
-		bigger_to_top(ps, index_bigger_nb(ps->sb, ps->size_sb), ps->size_sb, 'b');
-		move_pa(ps);
+		bigger_to_top(ps, index_bigger_nb(ps->sb, ps->size_sb), ps->size_sb, 'b'); // sempre mandando o maior pro topo
+		move_pa(ps); // e movendo esse maior pro a
 	}
 }

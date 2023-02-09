@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 21:30:30 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/01 13:39:20 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/09 12:14:48 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ t_ps	*valid_args(int argc, char **argv, t_ps *ps)
 	return (ps); // retornamos a struct
 }
 
+// confere se os números não são duplicados e indexa eles
 int	duplicate(t_ps *ps)
 {
 	int i; // índice percorre todos os elementos da stack a
@@ -120,6 +121,7 @@ void	change_nb_to_index(t_ps *ps)
 	}
 	free(ps->sa);
 	ps->sa = new_sa; // salva as posiçoes na a->stk
+	// impressão da pilha, ajuda a entender o que está acontecendo
 	// printf("pilha: ");
 	// for(int i=0; i < ps->size_sa; i++)
 	// 	printf("%d ", ps->sa[i]);

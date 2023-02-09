@@ -2,12 +2,12 @@ NAME	= push_swap
 
 CC	= cc
 INCLUDE		= -I ./
-CFLAGS		= -g -Wall -Wextra -Werror $(INCLUDE)
+CFLAGS		= -g -Wall -Wextra -Werror $(INCLUDE) ## flags que a 42 pede
 
 RM	= rm -rf
 
-PATH_SRCS	= ./
-PATH_UTILS	= $(PATH_SRCS)utils/
+PATH_SRCS	= ./ ## caminho para os arquivos
+PATH_UTILS	= $(PATH_SRCS)utils/ ## caminho para os arquivos auxiliares
 PATH_OBJS	= ./objs/
 
 SRCS	= ./main.c \
@@ -28,24 +28,24 @@ SRCS	= ./main.c \
 		$(PATH_UTILS)ft_strcmp.c \
 		$(PATH_UTILS)ft_calloc.c \
 
-OBJS	= $(patsubst $(PATH_SRCS)%.c, $(PATH_OBJS)%.o, $(SRCS))
+OBJS	= $(patsubst $(PATH_SRCS)%.c, $(PATH_OBJS)%.o, $(SRCS)) ## regra para criar os objs
 
 all:	$(NAME)
 
 $(NAME):	$(OBJS)
 	$(CC) $(CFLAGS)  $(OBJS) -o $(NAME)
 
-$(PATH_OBJS)%.o:	$(PATH_SRCS)%.c
-		@mkdir -p $(PATH_OBJS)
+$(PATH_OBJS)%.o:	$(PATH_SRCS)%.c  ## cria os objs dentro das pastas adequadas
+		@mkdir -p $(PATH_OBJS) 
 		@mkdir -p $(PATH_OBJS)utils/
 		$(CC) $(CFLAGS) -c $< -o $@
 
-clean:
+clean: ## apaga os o. e as pastas dos .o
 	$(RM) ./objs
 
-fclean: clean
+fclean: clean ## apaga os o. e as pastas dos .o MAIS o executável
 	$(RM) $(NAME)
 
-re:	fclean all
+re:	fclean all ## apaga os o., as pastas dos .o e o executável E recompila tudo
 
-.PHONY:	all $(PATH_OBJS) clean fclean re
+.PHONY:	all $(PATH_OBJS) clean fclean re ## evita conflito se tiver nome de regra e arquivo igual

@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 21:24:00 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/02 08:09:18 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/09 18:25:59 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 # include <unistd.h> // write
 # include <stdlib.h> // malloc, free
-# include <stdio.h> // RETIRAR  *   RETIRAR  *   RETIRAR  *   RETIRAR  *   RETIRAR  *
+# include <stdio.h> // RETIRAR  *   RETIRAR  *   RETIRAR  *   RETIRAR  *   RETIRAR  * (para os testes)
 
 # define MALLOC_ERROR -3
 
-typedef struct	s_division
+typedef struct	s_division // info das subporções para a ordenação de +100
 {
 	int	min;
 	int	max;
@@ -28,13 +28,12 @@ typedef struct	s_division
 
 typedef struct	s_push_swap
 {
-	int	*sa;
-	int	*sb;
-	int	*order_cmp;
-	int	size_sa;
-	int	size_sb;
-	int	temp;
-	int	valid_args;
+	int	*sa; // array com os elementos da pilha a
+	int	*sb; // array com os elementos da pilha b
+	int	size_sa; // tamanho da pilha a // e size_sa - 1 é o topo da pilha a
+	int	size_sb; // tamanho da pilha b // e size_sb - 1 é o topo da pilha b
+	int	temp; // recebe temporariamente algum número
+	int	valid_args; // recebe a validade dos args
 }	t_ps;
 
 // ./utils

@@ -6,7 +6,7 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 21:25:55 by maclara-          #+#    #+#             */
-/*   Updated: 2023/02/01 14:51:26 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/09 12:21:22 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,31 @@
 
 int	main(int argc, char *argv[])
 {
-	t_ps	ps;
-	ps.sb = NULL;
-	ps.order_cmp = NULL;
+	t_ps	ps; // declara a struct
+	ps.sb = NULL; // inicializa a struct
 	ps.size_sb = 0;
 	
-	if(check_args(argc, argv) == 0)
+	if(check_args(argc, argv) == 0) // confere se os args existem
 		return (-1);
-	valid_args(argc, argv, &ps);
+	valid_args(argc, argv, &ps); // confere se os args são valores válidos
 	if (ps.valid_args == 0)
 		return (-1);
-	if (duplicate(&ps) == 0)
+	if (duplicate(&ps) == 0) // confere se os números não são duplicados e indexa eles (troca os números pela sequêcia 0,1,2...)
 		return (-1);
-	if (argc <= 4)
-		order_three(&ps);
-	ps.order_cmp = ft_array_dup(ps.sa, ps.size_sa);
-	ft_sort_array(ps.order_cmp, ps.size_sa);
-	if (argc <= 6)
+	if (argc <= 4) // até 3 números 
+		order_three(&ps); // ordena por essa função
+	if (argc <= 6) // até 5 números 
 		order_five(&ps);
-	else if (argc <= 101)
+	else if (argc <= 101) // até 100 números
 		order_hundred(&ps, (float)ps.size_sa / 5);
-	else
+	else // mais de 100 números
 		order_large_numbers(&ps);
 	// printf("pilha a: ");
 	// for(int i=0; i < ps.size_sa; i++)
 	// 	printf("%d ", ps.sa[i]);
 	// printf("\n");
-	free(ps.sa);
-	free(ps.sb); // ---------- AINDA N SEI COMO DAR FREE NESSA VARIÁVEL -------------
+	free(ps.sa); // libera a memória das pilhas
+	free(ps.sb); // libera a memória das pilhas
 	return (0);
 }
 

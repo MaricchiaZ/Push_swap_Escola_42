@@ -6,16 +6,26 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 19:00:15 by maclara-          #+#    #+#             */
-/*   Updated: 2022/12/30 13:40:46 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/09 11:42:07 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//man strcmp: 
+// A função strcmp() compara os  bytes de s1 e s2.
+// Ela retorna um inteiro menor que, igual a, ou maior que zero se s1 for encontrado, 
+//respectivamente, menor que, igual a, ou maior que s2.
+
+// essa função compara os bytes de s1 e s2 retorna a diferença em ASCII dos 
+//valores encontrados em uma memsma posição de s1 e s2
 int	ft_strcmp(char *s1, char *s2)
 {
-	while (*s1 != '\0' && *s1 == *s2)
+	while (*s1 != '\0' && *s1 == *s2) // enquanto s1 não chegar no byte nulo e
+	// s1 e s2 forem idênticos
 	{
-		s1++;
-		s2++;
+		s1++; // avançamos o ponteiro de s1 para a próxima posição da string
+		s2++; // avançamos o ponteiro de s2 para a próxima posição da string
 	}
-	return (*s1 - *s2);
+	return (*s1 - *s2); // se saiu do while, ou temos uma diferença e retornamos 
+	// s1 menos s2, com o resultado sendo dado no intervalo da diferença em ASCII
+	// OU s1 e acabou e até o fim elas eram iguais, nesse caso a diferença é zero
 }

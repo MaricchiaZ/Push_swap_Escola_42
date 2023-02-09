@@ -6,13 +6,13 @@
 /*   By: maclara- <maclara-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 10:42:41 by maclara-          #+#    #+#             */
-/*   Updated: 2023/01/31 20:09:05 by maclara-         ###   ########.fr       */
+/*   Updated: 2023/02/09 12:11:23 by maclara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	exec_moves(t_ps *ps, char *move)
+void	exec_moves(t_ps *ps, char *move) // executa os movimentos passados por string de texto
 {
 	//printf("move: %s\n", move);
 	if (!ft_strcmp(move, "sa"))
